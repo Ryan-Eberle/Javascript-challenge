@@ -99,7 +99,7 @@ select {
   padding: 20px;
   margin: 0;
   background: black;
-  /* background-image: url("/static/nasa.jpeg"); */
+  background: url("static/nasa.jpeg");
   background-attachment: fixed;
   background-position: bottom center;
   background-size: cover;

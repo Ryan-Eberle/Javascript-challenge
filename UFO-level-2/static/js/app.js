@@ -24,14 +24,15 @@ tableBuild(events);
 button.on("click", function dateInput(ufoEvent){
     tbody.html("")
     d3.event.preventDefault();
+    // create variables for each column
     var dateTime = d3.select('#datetime').property('value');
     var selectedCity = d3.select('#city').property('value').toLowerCase();
     var selectedState = d3.select('#state').property('value').toLowerCase();
     var selectedCountry = d3.select('#country').property('value').toLowerCase();
     var selectedShape = d3.select('#shape').property('value').toLowerCase();
-    var wrongselection = ('What are they hiding?')
-    filterEvents = events;
 
+    filterEvents = events;
+// if statements to run through columns to check input value against table data. 
     if (dateTime) {
         filterEvents = filterEvents.filter(row => row.datetime === dateTime);
     }
@@ -47,9 +48,7 @@ button.on("click", function dateInput(ufoEvent){
     if (selectedShape) {
         filterEvents = filterEvents.filter(row => row.shape === selectedShape);
     }
-    else {
-        wrongselection
-    }
+    // print out the results table 
     filterEvents.forEach((alienEvent) => {
         var row = tbody.append('tr');
         Object.entries(alienEvent).forEach(([key,value]) => {
